@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">PC - Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{20DD0B48-EE6C-4168-A5F2-6091A271B7FD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Planetion</RootNamespace>
+    <AssemblyName>Planetion</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'PC - Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG;PC</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'PC - Release'">
+    <DefineConstants>PC</DefineConstants>
+    <Optimize>true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Android - Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineConstants>TRACE;DEBUG;ANDROID</DefineConstants>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Android - Release' ">
+    <DefineConstants>ANDROID</DefineConstants>
+    <Optimize>true</Optimize>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PC - Debug|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'PC - Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Android - Debug|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Android - Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Choose>
+    <When Condition=" '$(Configuration)' == 'Android - Debug' Or '$(Configuration)' == 'Android - Release' ">
+      <ItemGroup>
+        <Reference Include="OpenTK-1.0">
+          <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v4.0\OpenTK-1.0.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Mono.Android">
+          <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v4.0\Mono.Android.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+    <When Condition=" '$(Configuration)' == 'PC - Debug' Or '$(Configuration)' == 'PC - Release' ">
+      <ItemGroup>
+        <Reference Include="OpenTK">
+          <HintPath>Deploy\OpenTK.dll</HintPath>
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="System.Drawing" />
+        <Reference Include="System.Windows.Forms" />
+      </ItemGroup>
+    </When>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="Engine\Internals\DeferredRenderer.cs" />
+    <Compile Include="Engine\Input.cs" />
+    <Compile Include="Engine\Internals\ForwardRenderer.cs" />
+    <Compile Include="Engine\Internals\Light.cs" />
+    <Compile Include="Engine\Internals\Renderer.cs" />
+    <Compile Include="Engine\Loaders\ObjLoader.cs" />
+    <Compile Include="Engine\Network\Network.cs" />
+    <Compile Include="Engine\Objects\DirectionalLight.cs" />
+    <Compile Include="Engine\Objects\TerrainComponent.cs" />
+    <Compile Include="Engine\Programs\GaussianBlur.cs" />
+    <Compile Include="Engine\Programs\StoreDepth.cs" />
+    <Compile Include="Engine\Utils\Frustum.cs" />
+    <Compile Include="Engine\Utils\Heightmap.cs" />
+    <Compile Include="Engine\Utils\Perlin.cs" />
+    <Compile Include="Game\Objects\BoxComponent.cs" />
+    <Compile Include="Game\Objects\BoxMesh.cs" />
+    <Compile Include="Engine\Internals\ICamera.cs" />
+    <Compile Include="Engine\Objects\GameObject.cs" />
+    <Compile Include="Engine\Internals\Mesh.cs" />
+    <Compile Include="Engine\Objects\WorldScript.cs" />
+    <Compile Include="Game\Objects\IsometricCamera.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Engine\Internals\ShaderProgram.cs" />
+    <Compile Include="Engine\GameSurface.cs" />
+    <Compile Include="Engine\Objects\Transform.cs" />
+    <Compile Include="Engine\Objects\Component.cs" />
+    <Compile Include="Engine\Objects\MeshComponent.cs" />
+    <Compile Include="Engine\Objects\BillboardComponent.cs" />
+    <Compile Include="Game\Objects\FPSCamera.cs" />
+    <Compile Include="Engine\Utils\GeometryHelpers.cs" />
+    <Compile Include="Engine\Utils\GroupedList.cs" />
+    <Compile Include="Engine\Objects\RenderableComponent.cs" />
+    <Compile Include="Engine\Objects\CameraComponent.cs" />
+    <Compile Include="Engine\Utils\RequireComponent.cs" />
+    <Compile Include="Engine\World.cs" />
+    <Compile Include="Engine\Objects\RigidbodyComponent.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ItemGroup>
+    <Content Include="Programs\Clear.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Programs\DefDirectionalLight.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Programs\FullScreenTexture.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Programs\GBuffer.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Programs\TexturedMesh.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Deploy\OpenTK.dll" />
+    <Content Include="Deploy\OpenTK.xml" />
+    <Content Include="Programs\GaussianBlur.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Programs\StoreDepth.fx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Deploy\OpenTK.dll.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Jitter\Jitter.csproj">
+      <Project>{AA03EF1A-94F7-4D30-AB14-2092863FF923}</Project>
+      <Name>Jitter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+</Project>

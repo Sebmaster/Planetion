@@ -1,0 +1,12 @@
+# built files
+bin/
+obj/
+
+# ide files
+*.userprefs
+*.user
+*.pidb
+*.suo
+
+# misc files
+.dropbox
