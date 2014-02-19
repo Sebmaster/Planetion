@@ -77,9 +77,9 @@
     </When>
     <When Condition=" '$(Configuration)' == 'PC - Debug' Or '$(Configuration)' == 'PC - Release' ">
       <ItemGroup>
-        <Reference Include="OpenTK">
-          <HintPath>Deploy\OpenTK.dll</HintPath>
-          <Private>False</Private>
+        <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+          <Private>True</Private>
+          <HintPath>..\packages\OpenTK.1.1.1508.5724\lib\NET40\OpenTK.dll</HintPath>
         </Reference>
         <Reference Include="System.Drawing" />
         <Reference Include="System.Windows.Forms" />
@@ -148,19 +148,13 @@
     <Content Include="Programs\TexturedMesh.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Deploy\OpenTK.dll" />
-    <Content Include="Deploy\OpenTK.xml" />
     <Content Include="Programs\GaussianBlur.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Programs\StoreDepth.fx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Deploy\OpenTK.dll.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Jitter\Jitter.csproj">

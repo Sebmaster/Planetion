@@ -83,9 +83,9 @@
     </When>
     <When Condition=" '$(Configuration)' == 'PC - Debug' Or '$(Configuration)' == 'PC - Release' ">
       <ItemGroup>
-        <Reference Include="OpenTK">
-          <HintPath>..\Planetion\Deploy\OpenTK.dll</HintPath>
+        <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
           <Private>True</Private>
+          <HintPath>..\packages\OpenTK.1.1.1508.5724\lib\NET40\OpenTK.dll</HintPath>
         </Reference>
         <Reference Include="System.Drawing" />
       </ItemGroup>
